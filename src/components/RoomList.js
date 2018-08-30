@@ -21,10 +21,12 @@ class RoomList extends Component {
   render() {
     return (
       <section>
-      <h1>Testing</h1>
+      <h1>Bloc Chat</h1>
+      <ul>
       {this.state.rooms.map( room =>
-        <li>{room.name}</li>
+        <li key={room.key}>{room.name}</li>
       )}
+      </ul>
 
       </section>
     );
