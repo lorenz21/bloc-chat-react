@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './RoomList.css'
 
 class RoomList extends Component {
   constructor(props){
@@ -12,6 +13,7 @@ class RoomList extends Component {
     this.roomsRef = this.props.firebase.database().ref('rooms');
     this.handleUserInput = this.handleUserInput.bind(this);
     this.createRoom = this.createRoom.bind(this);
+    this.setActiveRoom = this.props.setActiveRoom.bind(this);
   }
 
   componentDidMount() {
@@ -26,7 +28,7 @@ class RoomList extends Component {
     this.setState({
       newRoomName: e.target.value
     });
-    console.log(this.state.newRoomName);
+
   }
 
   createRoom() {
@@ -46,20 +48,27 @@ class RoomList extends Component {
     }
   }
 
+  handleRoomSelect (room) {
+    this.props.setActiveRoom(room);
+  }
+
   render() {
     return (
-      <section>
-      <h1>Bloc Chat Rooms</h1>
-      <ul>
-      {this.state.rooms.map( room =>
-        <li key={room.key}>{room.name}</li>
-      )}
-      </ul>
 
-      <input type="text" placeholder="Enter new room name..." value={this.state.newRoomName} onChange={this.handleUserInput}/>
-      <button onClick={this.createRoom}>Create New Room</button>
+      <div className="room-list">
+        <h1>{this.props.activeRoom ? this.props.activeRoom.name : 'Select a Chat Room'}</h1>
+        <ul>
+        {this.state.rooms.map( room =>
+          <li key={room.key}>
+          <button className="create-room" onClick={(e) => this.handleRoomSelect(room,e)}>{room.name}</button>
+          </li>
 
-      </section>
+        )}
+        </ul>
+
+        <input type="text" placeholder="Enter new room name..." value={this.state.newRoomName} onChange={this.handleUserInput}/>
+        <button onClick={this.createRoom}>Create New Room</button>
+      </div>
     );
   }
 }
