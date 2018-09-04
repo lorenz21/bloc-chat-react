@@ -1,3 +1,13 @@
 .room-list {
-  text-align: left;
+  border: solid 2px white;
+  text-align: center;
+  padding: 20px;
+}
+
+.bottom-column {
+  position: absolute;
+}
+
+.list-group-item {
+  background-color: black;
 }

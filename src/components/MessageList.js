@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './MessageList.css'
 
 class MessageList extends Component {
   constructor(props){
@@ -25,18 +26,26 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div className="message-list">
+      <div className="col-7 message-list">
+        <div className="row text-center h-100">
+          <div className="col-12">
+            <h2>Messages</h2>
+          </div>
+          {this.state.messages.filter(message => message.roomId === this.props.activeRoom.key).map((message, index) =>
+            <div className="col-12 messsages">
+              <p>{message.content}</p>
+              <p>{message.sentAt}</p>
+              <p>{message.username}</p>
+            </div>
 
-      {this.state.messages.filter(message => message.roomId === this.props.activeRoom.key).map((message, index) =>
-        <div key={index} className="messages">
-          <p>{message.content}</p>
-          <p>{message.sentAt}</p>
-          <p>{message.username}</p>
+          )}
+          <div className="col-12 fixed-bottom bottom-column">
+            <div className="input-group">
+              <input className="mdl-textfield__input bottom" type="text" placeholder="Enter a message..." />
+              <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Send</button>
+            </div>
+          </div>
         </div>
-
-      )}
-        <input type="text" placeholder="Enter a message..." />
-        <button>Send</button>
       </div>
 
     );

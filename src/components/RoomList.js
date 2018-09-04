@@ -55,19 +55,27 @@ class RoomList extends Component {
   render() {
     return (
 
-      <div className="room-list">
-        <h1>{this.props.activeRoom ? this.props.activeRoom.name : 'Select a Chat Room'}</h1>
-        <ul>
-        {this.state.rooms.map( room =>
-          <li key={room.key}>
-          <button className="create-room" onClick={(e) => this.handleRoomSelect(room,e)}>{room.name}</button>
-          </li>
-
-        )}
-        </ul>
-
-        <input type="text" placeholder="Enter new room name..." value={this.state.newRoomName} onChange={this.handleUserInput}/>
-        <button onClick={this.createRoom}>Create New Room</button>
+      <div className="col-5 room-list">
+        <div className="row text-center h-100">
+          <div className="col-12">
+            <h2 className="top">{this.props.activeRoom ? this.props.activeRoom.name : 'Select a Chat Room'}</h2>
+          </div>
+          <div className="col-12 rooms">
+            <ul className="btn-group-vertical">
+            {this.state.rooms.map( room =>
+                <li className="list-group-item">
+                  <button key={room.key} className="mdl-button mdl-js-button mdl-button--primary create-room" onClick={(e) => this.handleRoomSelect(room,e)}>{room.name}</button>
+                </li>
+            )}
+            </ul>
+          </div>
+          <div className="col-12 fixed-bottom bottom-column" >
+            <div className="input-group">
+              <input className="mdl-textfield__input bottom" type="text" placeholder="Enter new room name..." value={this.state.newRoomName} onChange={this.handleUserInput}/>
+              <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" type="button" onClick={this.createRoom}>New Room</button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
