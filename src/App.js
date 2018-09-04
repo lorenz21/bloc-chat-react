@@ -46,6 +46,13 @@ class App extends Component {
   }
 
 
+  formatTime(timestamp) {
+    // Converts the seconds given by UNIX timestamp to milliseconds for Date object
+    let date = new Date (timestamp);
+    let fTime = date.toLocaleTimeString('en-US');
+    return fTime;
+  }
+
   render() {
     return (
       <div className="container-fluid h-100">
@@ -63,6 +70,8 @@ class App extends Component {
           <MessageList
           firebase={firebase}
           activeRoom={this.state.activeRoom}
+          user={this.state.user}
+          formatTime={this.formatTime}
           />
         </div>
       </div>

@@ -63,8 +63,8 @@ class RoomList extends Component {
           <div className="col-12 rooms">
             <ul className="btn-group-vertical">
             {this.state.rooms.map( room =>
-                <li className="list-group-item">
-                  <button key={room.key} className="mdl-button mdl-js-button mdl-button--primary create-room" onClick={(e) => this.handleRoomSelect(room,e)}>{room.name}</button>
+                <li key={room.key} className="list-group-item">
+                  <button className="mdl-button mdl-js-button mdl-button--primary create-room" onClick={(e) => this.handleRoomSelect(room,e)}>{room.name}</button>
                 </li>
             )}
             </ul>
