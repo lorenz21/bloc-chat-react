@@ -1,7 +1,7 @@
 .room-list {
-  border: solid 2px white;
   text-align: center;
   padding: 20px;
+  background-color: rgba(151, 200, 235);
 }
 
 .bottom-column {
@@ -9,5 +9,31 @@
 }
 
 .list-group-item {
-  background-color: black;
+  background-color: rgba(151, 200, 235);
+  border: none;
+}
+
+.ion-md-trash {
+  padding: 11px;
+}
+
+  .ion-md-trash:hover {
+    background-color: red;
+    cursor: pointer;
+  }
+
+.ion-md-create {
+  padding: 11px;
+}
+  .ion-md-create:hover {
+    background-color: green;
+    cursor: pointer;
+  }
+
+.mdl-layout-title.top {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }

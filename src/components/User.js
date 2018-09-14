@@ -31,9 +31,8 @@ class User extends Component {
 
   render() {
     return(
-      <div>
+      <div className="title-bar">
         { this.props.user ? <div>{this.props.user.displayName} | <button className="mdl-button mdl-js-button mdl-button--accent" onClick={this.signOut}>Sign Out</button></div> : <div>Guest | <button className="mdl-button mdl-js-button mdl-button--primary"onClick={this.signIn}>Sign In</button></div> }
-
       </div>
     );
   }

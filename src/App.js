@@ -30,7 +30,6 @@ class App extends Component {
     this.setUser = this.setUser.bind(this);
   }
 
-
   setActiveRoom(room) {
 
     this.setState({
@@ -45,7 +44,6 @@ class App extends Component {
     });
   }
 
-
   formatTime(timestamp) {
     // Converts the seconds given by UNIX timestamp to milliseconds for Date object
     let date = new Date (timestamp);
@@ -55,24 +53,24 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container-fluid h-100">
+      <div>
         <User
         firebase={firebase}
         setUser={this.setUser}
         user={this.state.user}
         />
-        <div className="row h-100">
-          <RoomList
-          firebase={firebase}
-          activeRoom={this.state.activeRoom}
-          setActiveRoom={this.setActiveRoom}
-          />
-          <MessageList
-          firebase={firebase}
-          activeRoom={this.state.activeRoom}
-          user={this.state.user}
-          formatTime={this.formatTime}
-          />
+        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+            <RoomList
+            firebase={firebase}
+            activeRoom={this.state.activeRoom}
+            setActiveRoom={this.setActiveRoom}
+            />
+            <MessageList
+            firebase={firebase}
+            activeRoom={this.state.activeRoom}
+            user={this.state.user}
+            formatTime={this.formatTime}
+            />
         </div>
       </div>
     );
