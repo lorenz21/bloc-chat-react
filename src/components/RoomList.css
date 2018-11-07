@@ -2,12 +2,8 @@
   text-align: center;
   padding: 20px;
   background-color: rgba(151, 200, 235);
+  height: 100%;
 }
-
-.bottom-column {
-  position: absolute;
-}
-
 .list-group-item {
   background-color: rgba(151, 200, 235);
   border: none;
@@ -19,6 +15,7 @@
 
   .ion-md-trash:hover {
     background-color: red;
+    color: #fff;
     cursor: pointer;
   }
 
@@ -27,6 +24,7 @@
 }
   .ion-md-create:hover {
     background-color: green;
+    color: #fff;
     cursor: pointer;
   }
 

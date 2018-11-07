@@ -155,7 +155,7 @@ class RoomList extends Component {
             )}
           </nav>
             <div className="input-group">
-              <input className="mdl-textfield__input bottom" type={this.state.newButton ? 'hidden' : 'text'} placeholder="Enter new room name..." value={this.state.newRoomName} onChange={this.handleNewInput} onKeyPress={event => {if (event.key === 'Enter'){this.createRoom();}}}/>
+              <input className="mdl-textfield__input" type={this.state.newButton ? 'hidden' : 'text'} placeholder="Enter new room name..." value={this.state.newRoomName} onChange={this.handleNewInput} onKeyPress={event => {if (event.key === 'Enter'){this.createRoom();}}}/>
               <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" type="button" onClick={this.createRoom} disabled={this.state.newButton}>New Room</button>
             </div>
       </div>
